@@ -18,6 +18,14 @@ function App() {
       }),
       whiteKeyMaterial: new THREE.MeshLambertMaterial({
         color: new THREE.Color('#ffffff')
+      }),
+      redBarMaterial: new THREE.MeshToonMaterial({
+        color: new THREE.Color('red')
+      }),
+      brassMaterial: new THREE.MeshStandardMaterial({
+        // color: new THREE.Color('#E1C16E'),
+        color: new THREE.Color('#b9853c'),
+
       })
     }
   })
@@ -25,7 +33,7 @@ function App() {
 
 
   return (
-    <Canvas shadows shadowMap>
+    <Canvas shadows>
       <OrbitControls target={[0, 1, 0]} />
       <color attach="background" args={["#FFDFD3"]} />
       {/* <Environment preset='sunset' /> */}
