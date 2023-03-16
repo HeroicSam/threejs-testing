@@ -7,3 +7,10 @@ body,
   width: 100%;
   height: 100%;
 }
+
+.tablet-container {
+  width: 1200px;
+  height: 1600px;
+  background-color: white  ;
+  border-radius: 2%;
+}
