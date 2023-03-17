@@ -17,10 +17,17 @@ export default function Tablet({ toTablet }){
   }
 
     return (
-        <Html occlude transform scale={.0055} position={[tabletPositions.x, 1.215, .828]} rotation={[-Math.PI / 9, 0, 0]} >
-            <div className='tablet-container' onClick={() => toTablet()}>
-                Hello
-            </div>
+        <Html
+          occlude
+          transform
+          position={[0.0765, 1.194, .835]} 
+          rotation-x={-Math.PI / 9}
+          distanceFactor={.056}
+          wrapperClass="tablet"
+        >
+          <div>
+            <h1>BOOBEAR</h1>
+          </div>
         </Html>
     )
 }

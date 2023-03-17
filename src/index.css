@@ -8,9 +8,10 @@ body,
   height: 100%;
 }
 
-.tablet-container {
+.tablet div {
   width: 1200px;
   height: 1600px;
   background-color: white  ;
+  background-image: url("duck.jpg");
   border-radius: 2%;
 }

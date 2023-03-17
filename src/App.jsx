@@ -71,7 +71,6 @@ function App() {
       <OrbitControls ref={orbitRef} target={[.1, 1.14, 1]} enabled={orbitEnabled} />
       <CameraControls materials={materials} />
       <color attach="background" args={["#FFDFD3"]} />
-      {/* <Environment preset='sunset' /> */}
       <pointLight position={[0,5,4]} castShadow intensity={.5}/>
       <ambientLight intensity={.6} />
       <mesh position={[0, 0, 0]} rotation={[-Math.PI / 2   , 0, 0]} receiveShadow>
@@ -80,7 +79,7 @@ function App() {
       </mesh>
       <EffectComposer>
         {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
-        {/* <Bloom luminanceThreshold={.75} luminanceSmoothing={0.1} height={300} /> */}
+        <Bloom luminanceThreshold={.78} luminanceSmoothing={0.1} height={300} />
         <Noise opacity={0.20} />
         {/* <Vignette eskil={false} offset={0.01} darkness={1.1} /> */}
         {/* <Outline blur edgeStrength={100} /> */}
