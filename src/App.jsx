@@ -2,20 +2,18 @@ import { useState, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { Canvas, useThree } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { Html, OrbitControls } from '@react-three/drei'
 import { EffectComposer, Noise, Bloom, Vignette, DepthOfField, Outline } from '@react-three/postprocessing'
 
-import { Model } from './components/Grandpiano'
+import { Model } from './components/Grandpiano2'
 
 function App() {
 
   const [orbitEnabled, setOrbitEnabled] = useState(true)
   const orbitRef = useRef()
-  console.log('hello', orbitRef)
 
   function CameraControls(props){
     const camera = useThree((state) => state.camera)
-    console.log(props)
     camera.lookAt(0, 1.5, 0)
 
     function toTablet(){
@@ -42,26 +40,6 @@ function App() {
         </>
       )
   } 
-
-  function resize() {
-
-    const container = renderer.domElement.parentNode;
-  
-    if( container ) {
-  
-      const width = container.offsetWidth;
-      const height = container.offsetHeight;
-  
-      renderer.setSize( width, height );
-  
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-  
-    }
-  
-  }
-  
-  window.addEventListener( 'resize', resize );
 
   const materials = useMemo(() => {
     return {
@@ -90,19 +68,19 @@ function App() {
 
   return (
     <Canvas shadows camera={{ position: [1.6, 1.9, 2.2] }}>
-      <OrbitControls ref={orbitRef} target={[.1, 1.83, 1]} enabled={orbitEnabled} />
+      <OrbitControls ref={orbitRef} target={[.1, 1.14, 1]} enabled={orbitEnabled} />
       <CameraControls materials={materials} />
       <color attach="background" args={["#FFDFD3"]} />
       {/* <Environment preset='sunset' /> */}
       <pointLight position={[0,5,4]} castShadow intensity={.5}/>
       <ambientLight intensity={.6} />
-      <mesh position={[0, .62, 0]} rotation={[-Math.PI / 2   , 0, 0]} receiveShadow>
+      <mesh position={[0, 0, 0]} rotation={[-Math.PI / 2   , 0, 0]} receiveShadow>
         <planeGeometry args={[10, 10, 10]} />
         <shadowMaterial color='#FFDFD3' />
       </mesh>
       <EffectComposer>
         {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
-        <Bloom luminanceThreshold={.75} luminanceSmoothing={0.1} height={300} />
+        {/* <Bloom luminanceThreshold={.75} luminanceSmoothing={0.1} height={300} /> */}
         <Noise opacity={0.20} />
         {/* <Vignette eskil={false} offset={0.01} darkness={1.1} /> */}
         {/* <Outline blur edgeStrength={100} /> */}
