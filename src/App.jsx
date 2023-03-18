@@ -2,7 +2,7 @@ import { useState, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { Canvas, useThree } from '@react-three/fiber'
-import { Html, OrbitControls } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 import { EffectComposer, Noise, Bloom, Vignette, DepthOfField, Outline } from '@react-three/postprocessing'
 
 import { Model } from './components/Grandpiano2'
@@ -78,11 +78,8 @@ function App() {
         <shadowMaterial color='#FFDFD3' />
       </mesh>
       <EffectComposer>
-        {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
         <Bloom luminanceThreshold={.78} luminanceSmoothing={0.1} height={300} />
         <Noise opacity={0.20} />
-        {/* <Vignette eskil={false} offset={0.01} darkness={1.1} /> */}
-        {/* <Outline blur edgeStrength={100} /> */}
       </EffectComposer>
     </Canvas>
   )
