@@ -8,10 +8,16 @@ body,
   height: 100%;
 }
 
-.tablet div {
+/* .tablet div {
+  width: 3px;
+  height: 400px;
+  background-color: white  ;
+  background-image: url("duck.jpg");
+  border-radius: 2%;
+} */
+
+.tablet iframe {
   width: 1200px;
   height: 1600px;
-  background-color: white  ;
-  /* background-image: url("duck.jpg"); */
   border-radius: 2%;
 }
